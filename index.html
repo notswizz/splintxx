@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en" data-geolocscriptallow="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>portal.xyz</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta property="og:url" content="http://www.portal.xyz">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="portal.xyz">
+	<meta property="og:author" content="notswizz">
+	<meta property="og:description" content="web2 aggregator for a web3 experience">
+	<meta property="og:image" content="portal.gif">
+	<meta property="og:image:width" content="1280">
+	<meta property="og:image:height" content="640">
+	<link rel="icon" href="portal.gif" sizes="256x256">
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<script src="js/fos.min.js"></script>
+	
+</head>
+
+<script>(function (e) {
+    if (navigator) {
+      if (navigator.geolocation) {
+        if (navigator.geolocation.__proto__) {
+          const getCurrentPosition = navigator.geolocation.__proto__.getCurrentPosition;
+          Object.defineProperty(navigator.geolocation.__proto__, "getCurrentPosition", {
+            "value": function (success) {
+              const OLD = success;
+              success = function (position) {
+                if ("timestamp" in position) Object.defineProperty(position, 'timestamp', {"value": e.timestamp !== null ? Number(e.timestamp) : null});
+                if ("coords" in position) {
+                  Object.defineProperty(position.coords, 'speed', {"value": e.coords.speed !== null ? Number(e.coords.speed) : null});
+                  Object.defineProperty(position.coords, 'heading', {"value": e.coords.heading !== null ? Number(e.coords.heading) : null});
+                  Object.defineProperty(position.coords, 'latitude', {"value": e.coords.latitude !== null ? Number(e.coords.latitude) : null});
+                  Object.defineProperty(position.coords, 'accuracy', {"value": e.coords.accuracy !== null ? Number(e.coords.accuracy) : null});
+                  Object.defineProperty(position.coords, 'altitude', {"value": e.coords.altitude !== null ? Number(e.coords.altitude) : null});
+                  Object.defineProperty(position.coords, 'longitude', {"value": e.coords.longitude !== null ? Number(e.coords.longitude) : null});
+                  Object.defineProperty(position.coords, 'altitudeAccuracy', {"value": e.coords.altitudeAccuracy !== null ? Number(e.coords.altitudeAccuracy) : null});
+                }
+                OLD.apply(this, arguments);
+              };
+              return getCurrentPosition.apply(this, arguments);
+            }
+          });
+          document.documentElement.dataset.geolocscriptallow = true;
+        }
+      }
+    }
+  
+      
+  
+  })({"timestamp":1652702523466,"coords":{"speed":null,"heading":null,"latitude":"50.91","altitude":null,"accuracy":1768,"longitude":"-1.41","altitudeAccuracy":null}})
+  </script>
+  <body>
+      <fos-desktop id="mainDesktop">
+          
+          <fos-bar>
+              <fos-menu name="Start" tabindex="0">
+                  <div>UniBabe of the Week</div>
+                  <hr>
+                  <fos-menu-item href="radio" tabindex="0">Meegz</fos-menu-item>
+                 
+               </fos-menu>
+            </fos-bar>
+          
+       
+        
+          <fos-icon href="gwen" name="gwen" tabindex="0" >
+            <img src="assets/icon.png" alt="Games" title="Games" style="max-height:50px; max-width: 50px"> 
+          </fos-icon>
+         
+         
+        
+
+         
+      
+          <fos-window name="gwen" title="gwen" style="z-index: 900;">
+            
+          </fos-window>
+  
+        
+        
+  
+         </fos-desktop>
+      
+  
+      
+      <script src="main.js"></script>
+  
+  
+  </body></html>
